@@ -85,17 +85,13 @@ X = np.array([r for r in csvReader])
 X = X.astype(np.float)
 
 # pick the GrossIncomeSqFt column
-buildings_X = X[:,4]
-# reshape the one-dimensional data
-buildings_X = buildings_X.reshape(-1,1)
+buildings_X = X[:,3].reshape(-1,1)
 # split the data into train/test sets
 buildings_X_train = buildings_X[:-645]
 buildings_X_test = buildings_X[-645:]
 
 # pick the MarketValueperSqFt column
-buildings_y = X[:,5]
-# reshape the one-dimensional data
-buildings_y = buildings_y.reshape(-1,1)
+buildings_y = X[:,5].reshape(-1,1)
 # split the targets into train/test sets
 buildings_y_train = buildings_y[:-645]
 buildings_y_test = buildings_y[-645:]
