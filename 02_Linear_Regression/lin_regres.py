@@ -4,7 +4,7 @@ import numpy as np
 from sklearn import linear_model
 import csv
 
-redata = open('/Users/lgnonato/Meusdocs/Cursos/CUSP-GX-5006/Data/manhattan-dof.csv', "r")
+redata = open('./manhattan-dof.csv', "r")
 csvReader = csv.reader(redata,delimiter=';')
 next(csvReader)
 
@@ -21,34 +21,34 @@ idx = np.where((X[:,0] == 4) & (X[:,3] <= 35000) & (X[:,5] > 180 - 0.00054606*X[
 # --------------------
 # GrossSqFt to predict MarketValueperSqFt
 # --------------------
-#Xt=np.array(X[idx,3]).reshape(-1,1)
-#Yt=np.array(X[idx,5]).reshape(-1,1)
-#Xtmax = np.amax(Xt)
-#Ytmax = np.amax(Yt)
-#Xt = Xt/Xtmax
-#Yt = Yt/Ytmax
-#plt.figure(1)
-#plt.scatter(Xt,Yt)
+Xt=np.array(X[idx,3]).reshape(-1,1)
+Yt=np.array(X[idx,5]).reshape(-1,1)
+Xtmax = np.amax(Xt)
+Ytmax = np.amax(Yt)
+Xt = Xt/Xtmax
+Yt = Yt/Ytmax
+plt.figure(1)
+plt.scatter(Xt,Yt)
 
 # --------------------
 # making the linear regression
 # --------------------
-#liregr = linear_model.LinearRegression()
-#riregr = linear_model.Ridge(alpha=1.0e2)
-#laregr = linear_model.Lasso(alpha=1.0e2)
-#liregr.fit(Xt, Yt)
-#riregr.fit(Xt, Yt)
-#laregr.fit(Xt, Yt)
-#print(liregr.coef_,liregr.intercept_)
-#print(riregr.coef_,riregr.intercept_)
-#print(laregr.coef_,riregr.intercept_)
-#
-#print("MSE Linear (red): %.2f", np.mean((liregr.predict(Xt) - Yt) ** 2))
-#print("MSE Ridge (green): %.2f", np.mean((riregr.predict(Xt) - Yt) ** 2))
-#print("MSE Lasso (black): %.2f", np.mean((laregr.predict(Xt) - Yt) ** 2))
-#plt.scatter(Xt,liregr.predict(Xt),color='red')
-#plt.scatter(Xt,riregr.predict(Xt),color='green')
-#plt.scatter(Xt,laregr.predict(Xt),color='black')
+liregr = linear_model.LinearRegression()
+riregr = linear_model.Ridge(alpha=1.0e2)
+laregr = linear_model.Lasso(alpha=1.0e2)
+liregr.fit(Xt, Yt)
+riregr.fit(Xt, Yt)
+laregr.fit(Xt, Yt)
+print(liregr.coef_,liregr.intercept_)
+print(riregr.coef_,riregr.intercept_)
+print(laregr.coef_,riregr.intercept_)
+
+print("MSE Linear (red): %.2f", np.mean((liregr.predict(Xt) - Yt) ** 2))
+print("MSE Ridge (green): %.2f", np.mean((riregr.predict(Xt) - Yt) ** 2))
+print("MSE Lasso (black): %.2f", np.mean((laregr.predict(Xt) - Yt) ** 2))
+plt.scatter(Xt,liregr.predict(Xt),color='red')
+plt.scatter(Xt,riregr.predict(Xt),color='green')
+plt.scatter(Xt,laregr.predict(Xt),color='black')
 
 
 # --------------------
