@@ -1,0 +1,92 @@
+\documentclass[10pt,twocolumn]{article} 
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{titling}
+\usepackage{url,hyperref}
+
+\begin{document}
+
+\title{\LaTeX\ Template for Assigment Reports}
+
+\author{Beyonce and Laidy Gaga}
+
+\date{%
+CUSP-GX-5006\\
+Assigment \# 1\\
+\rule{\textwidth}{1pt}
+}
+
+\posttitle{\par\rule{3in}{0.4pt}\end{center}\vskip 0.5em}
+%\postdate{\rule{\textwidth}{1pt}}
+
+\maketitle
+
+\begin{abstract}
+Include a summary of the developments and their achievements here.
+\end{abstract}
+
+
+\section{Introduction}
+
+Describe the main goals of your analysis and what you did 
+achieve them. 
+
+You can highlight some interesting findings and 
+strategies you have adopted to tackle to assignment. 
+
+\section{Methods and Data Sets}
+Provide here a detailed description of the pipeline/steps involved in your experiment,
+including:
+
+\begin{enumerate}
+\item A description of the data sets used in your experiments. You should detail:
+\begin{itemize}
+\item The number of variables involved, providing a short description of their meaning.
+\item If some filtering was used to remove outliers or other artifacts from the data.
+In affirmative case, clearly describe how the date was filtered.
+\item Whether data was normalized or not.
+\end{itemize}
+\item A discussion about the computational methods used in your experiments and your 
+their parameters where set
+\item If your experiments relied on some particular procedure described in a particular 
+book of scientific paper, you should cite the reference like this \cite{ref1,ref2}.
+\end{enumerate}
+
+\section{Results}
+
+Describe your results and finds here. You can include figures to illustrate your results
+and depict the findings. Figures can be pointed using the labels ~\ref{fig-cusp}. 
+
+\begin{figure}[!t]
+  \begin{center}
+    \includegraphics[width=2.5in]{cusp.png}
+  \end{center}
+
+  \caption{\small Figures can be included like the one above}
+  \label{fig-cusp}
+\end{figure}
+
+\begin{figure*}[!t]
+  \begin{center}
+    \includegraphics[width=6.5in]{cusp.png}
+  \end{center}
+
+  \caption{\small If you have a large figure you can include it as two columens}
+  \label{fig-twocolumn}
+\end{figure*}
+
+\noindent\textbf{PS 1.} The file \texttt{refs.bib} contains the bibliographic references (see example).\\
+
+\noindent\textbf{PS 2.} To generate a pdf you should run
+\begin{enumerate}
+\item pdflatex <file-name.tex>
+\item bibtex <file-name> (without .tex)
+\item pdflatex <file-name.tex>
+\item pdflatex <file-name.tex>
+\end{enumerate}
+
+
+\bibliographystyle{abbrv}
+\bibliography{refs}
+\end{document}
